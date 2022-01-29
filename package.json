@@ -11,6 +11,7 @@
     "@angular/platform-browser": "^13.1.3",
     "@angular/platform-browser-dynamic": "^13.1.3",
     "@angular/router": "^13.1.3",
+    "express": "^4.17.2",
     "highcharts": "^9.1.0",
     "highcharts-angular": "^2.10.0",
     "rxjs": "^7.1.0",
@@ -19,7 +20,8 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
+    "startOld": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
