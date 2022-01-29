@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { CompradoresComponent } from './compradores/compradores.component';
-//import { Grafico01Component } from './grafico01/compradores.component';
+//import { Grafico01Component } from './grafico01/iva.compradores.component';
 import { Grafico02Component } from './grafico02/garantia.component';
 import { OrdenadoresComponent } from './ordenadores/ordenadores.component';
 import { CompradorDetailComponent } from './comprador-detail/comprador-detail.component';
