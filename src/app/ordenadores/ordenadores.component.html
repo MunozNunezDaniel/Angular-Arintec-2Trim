@@ -1,0 +1,80 @@
+<h2>Ordenadores</h2>
+<table>
+  <tr>
+    <th>Modelo:</th>
+    <th><input #ordenadorModelo /></th>
+  </tr>
+  <tr>
+    <th>Fecha montaje(aa-mm-dd):</th>
+    <th><input #ordenadorFmontaje /></th>
+  </tr>
+  <tr>
+    <th>Fecha garantia(aa-mm-dd):</th>
+    <th><input #ordenadorFgarantia /></th>
+  </tr>
+  <tr>
+    <th>Precio del pc:</th>
+    <th><input #ordenadorPrecio /></th>
+  </tr>
+  <tr>
+    <th>Cantidad:</th>
+    <th><input #ordenadorCantidad /></th>
+  </tr>
+  <tr>
+    <th>RAM:</th>
+    <th><input #ordenadorRAM /></th>
+  </tr>
+  <tr>
+    <th>Capacidad del disco duro:</th>
+    <th><input #ordenadorCapacidad /></th>
+  </tr>
+  <tr>
+    <th>Nombre del comprador:</th>
+    <th><input #ordenadorNombreComp /></th>
+  </tr>
+  <tr>
+    <th colspan="2">
+      <button
+        (click)="add(ordenadorModelo.value, ordenadorFmontaje.value, ordenadorFgarantia.value, ordenadorPrecio.value, ordenadorCantidad.value, ordenadorRAM.value, ordenadorCapacidad.value, ordenadorNombreComp.value); ordenadorFmontaje.value=''; ordenadorFgarantia.value=''; ordenadorPrecio.value=''; ordenadorCantidad.value=''; ordenadorRAM.value=''; ordenadorCapacidad.value=''; ordenadorNombreComp.value='';"
+      >
+        Añadir Ordenador
+      </button>
+    </th>
+  </tr>
+</table>
+
+<br /><br />
+<table class="ordenadores">
+  <tr>
+    <th>Modelo</th>
+    <th>Fecha montaje</th>
+    <th>Fecha garantia</th>
+    <th>Precio del pc</th>
+    <th>Cantidad</th>
+    <th>RAM</th>
+    <th>Capacidad del disco duro</th>
+    <th>Nombre del comprador</th>
+    <th>Eliminar</th>
+  </tr>
+  <tr *ngFor="let ordenador of ordenadores">
+    <th>
+      <a routerLink="/ordenador/{{ordenador._modelo}}"> {{ordenador._modelo}} </a>
+    </th>
+    <th>{{ordenador._fecha_montaje}}</th>
+    <th>{{ordenador._fecha_garantia}}</th>
+    <th>{{ordenador._precio_del_pc}}</th>
+    <th>{{ordenador._cantidad}}</th>
+    <th>{{ordenador._RAM}}</th>
+    <th>{{ordenador._disco_duro}}</th>
+    <th>{{ordenador._comprador}}</th>
+    <th>
+      <button
+        class="delete"
+        title="delete ordenador"
+        (click)="delete(ordenador)"
+      >
+        x
+      </button>
+    </th>
+  </tr>
+</table>

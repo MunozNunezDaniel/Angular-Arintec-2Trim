@@ -1,0 +1,82 @@
+<div *ngIf="ordenador != undefined">
+  <h2>{{ordenador._modelo}} Detalles</h2>
+  <div>
+    <label
+      >Modelo:
+      <input
+        [(ngModel)]="ordenador._modelo"
+        placeholder="{{ordenador._modelo}}"
+      />
+    </label>
+
+    <br />
+    <label
+      >Fecha de montaje:
+      <input
+        #ordenadorFechaM
+        [(ngModel)]="ordenador._fecha_montaje"
+        placeholder="fecha_montaje"
+      />
+    </label>
+
+    <br />
+    <label
+      >Fecha de garantia:
+      <input
+        #ordenadorFechaG
+        [(ngModel)]="ordenador._fecha_garantia"
+        placeholder="fecha_garantia"
+      />
+    </label>
+
+    <br />
+    <label
+      >Precio del PC:
+      <input
+        #ordenadorPrecio
+        [(ngModel)]="ordenador._precio_del_pc"
+        placeholder="precio_del_pc"
+      />
+    </label>
+
+    <br />
+    <label
+      >Cantidad:
+      <input #ordenadorCantidad 
+      [(ngModel)]="ordenador._cantidad" 
+      placeholder="cantidad" />
+    </label>
+
+    <br />
+    <label
+      >RAM:
+      <input
+        #ordenadorRAM
+        [(ngModel)]="ordenador._RAM"
+        placeholder="RAM"
+      />
+    </label>
+
+    <br />
+    <label
+      >Capacidad del disco duro:
+      <input
+        #ordenadorCapacidad
+        [(ngModel)]="ordenador._disco_duro"
+        placeholder="capacidad"
+      />
+    </label>
+
+    <br />
+    <label
+      >Nombre del comprador:
+      <input
+        #ordenadorComprador
+        [(ngModel)]="ordenador._comprador"
+        placeholder="comprador"
+      />
+    </label>
+  </div>
+  <button (click)="goBack()">Volver</button>
+  <button (click)="save(ordenadorPrecio.value)">Guardar</button>
+</div>

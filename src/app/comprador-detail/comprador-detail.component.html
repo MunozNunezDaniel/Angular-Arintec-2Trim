@@ -1,0 +1,109 @@
+<div *ngIf="comprador != undefined">
+  <h2>{{comprador._nombre_comprador}} Detalles</h2>
+  <div>
+    <label
+      >Identificador:
+      <input
+        [(ngModel)]="comprador._identif"
+        placeholder="{{comprador._identif}}"
+      />
+    </label>
+    <br />
+    <label
+      >Nombre del comprador:
+      <input
+        #compradorNombre
+        [(ngModel)]="comprador._nombre_comprador"
+        placeholder="{{comprador._nombre_comprador}}"
+      />
+    </label>
+    <br />
+    <label
+      >Presupuesto:
+      <input
+        #compradorPresupuesto
+        [(ngModel)]="comprador._presupuesto"
+        placeholder="presupuesto"
+      />
+    </label>
+    <br />
+    <label
+      >Numero de teléfono:
+      <input
+        #compradorDireccion
+        [(ngModel)]="comprador._n_telefono"
+        placeholder="n_telefono"
+      />
+    </label>
+    <br />
+  </div>
+  <button (click)="goBack()">Volver</button>
+  <button (click)="save(compradorPresupuesto.value)">Guardar</button>
+
+  <br><br>
+  <h2>Ordenadores</h2>
+  <table class="ordenadores">
+    <tr>
+      <th>Modelo</th>
+      <th>Fecha de Montaje</th>
+      <th>Fecha de la garantía</th>
+      <th>Precio del PC</th>
+      <th>Cantidad</th>
+      <th>Memoria RAM</th>
+      <th>Capacidad del disco duro</th>
+      <th>Nombre del comprador</th>
+    </tr>
+    <tr *ngFor="let s of comprador._ordenadores">
+      <td>{{s._modelo}}</td>
+      <td>{{s._fecha_montaje}}</td>
+      <td>{{s._fecha_garantia}}</td>
+      <td>{{s._precio_del_pc}}</td>
+      <td>{{s._cantidad}}</td>
+      <td>{{s._RAM}}</td>
+      <td>{{s._disco_duro}}</td>
+      <td>{{s._comprador}}</td>
+    </tr>
+  </table>
+  <h2>¿Desea añadir algún ordenador más a {{comprador._nombre_comprador}}?</h2>
+  <table class="ordenadores">
+    <tr>
+      <th>Modelo:</th>
+      <th><input #ordenadorModelo /></th>
+    </tr>
+    <tr>
+      <th>Fecha de Montaje:</th>
+      <th><input #ordenadorFmontaje /></th>
+    </tr>
+    <tr>
+      <th>Fecha de la garantía:</th>
+      <th><input #ordenadorFgarantia /></th>
+    </tr>
+    <tr>
+      <th>Precio del PC:</th>
+      <th><input #ordenadorPrecio /></th>
+    </tr>
+    <tr>
+      <th>Cantidad:</th>
+      <th><input #ordenadorCantidad /></th>
+    </tr>
+    <tr>
+      <th>Memoria RAM:</th>
+      <th><input #ordenadorRAM /></th>
+    </tr>
+    <tr>
+      <th>Capacidad del disco duro:</th>
+      <th><input #ordenadorCapacidad /></th>
+    </tr>
+    <tr>
+      <th>
+        <button
+            (click)="add(ordenadorModelo.value, ordenadorFmontaje.value, ordenadorFgarantia.value, ordenadorPrecio.value, ordenadorCantidad.value, ordenadorRAM.value, ordenadorCapacidad.value);
+            
+            ordenadorFmontaje.value=''; ordenadorFgarantia.value='';ordenadorPrecio.value=''; ordenadorCantidad.value='';ordenadorRAM.value='';ordenadorCapacidad.value=''"
+          >
+            Añadir
+          </button>
+      </th>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,46 @@
+<h2>Compradores</h2>
+<table>
+  <tr>
+    <th>Nombre:</th>
+    <th><input #compradorNombre /></th>
+  </tr>
+  <tr>
+    <th>Identificador</th>
+    <th><input #compradorIdentif /></th>
+  </tr>
+  <tr>
+    <th>Presupuesto:</th>
+    <th><input #compradorPresupuesto /></th>
+  </tr>
+  <tr>
+    <th>Número de telefono:</th>
+    <th><input #compradorNumero /></th>
+  </tr>
+  <tr>
+    <th colspan="2">
+      <button
+        (click)="add(compradorNombre.value, compradorIdentif.value, compradorPresupuesto.value, compradorNumero.value);compradorIdentif.value='';compradorPresupuesto.value='';compradorNumero.value='';"
+      >
+        Añadir Comprador
+      </button>
+    </th>
+  </tr>
+</table>
+
+<br /><br />
+<table class="compradores">
+  <tr>
+    <th>Nombre</th>
+    <th>Identificador</th>
+    <th>Presupuesto</th>
+    <th>Número de Teléfono</th>
+  </tr>
+  <tr *ngFor="let comprador of compradores">
+    <th>
+      <a routerLink="/comprador/{{comprador._nombre_comprador}}"> {{comprador._nombre_comprador}} </a>
+    </th>
+    <th>{{comprador._identif}}</th>
+    <th>{{comprador._presupuesto}}</th>
+    <th>{{comprador._n_telefono}}</th>
+  </tr>
+</table>
