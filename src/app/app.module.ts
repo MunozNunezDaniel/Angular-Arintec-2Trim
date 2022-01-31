@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { AppRoutingModule } from './app-routing.module';
+import {APP_BASE_HREF} from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { CompradorDetailComponent } from './comprador-detail/comprador-detail.component';
@@ -36,10 +37,11 @@ import { OrdenadorService } from './ordenador.service';
   ],
   bootstrap: [AppComponent],
   providers: [
+    {provide: APP_BASE_HREF, useValue : '/' },
     MessageService,
     OrdenadorService,
     CompradorService
     //poner aqui los servicios para enlazarlos
-  ]
+  ],
 })
 export class AppModule {}
