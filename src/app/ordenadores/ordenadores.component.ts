@@ -5,12 +5,12 @@ import { MessageService } from '../message.service';
 
 
 @Component({
-  selector: 'app-ordenadores',
+  selector: 'app-ordenadorees',
   templateUrl: './ordenadores.component.html',
   styleUrls: ['./ordenadores.component.css']
 })
 export class OrdenadoresComponent implements OnInit {
-  ordenadores: Ordenador[];
+  ordenadoresOBJ: Ordenador[];
   ordenadoresApi = null;
   ordenadorTmp: any;
 
@@ -20,11 +20,11 @@ export class OrdenadoresComponent implements OnInit {
   ) {}
 
   getOrdenadoresApi() {
-    this.messageService.add('Mostrando Ordenadores');
-    this.ordenadorService.getOrdenadoresApi().subscribe(ordenadores => {
-      this.ordenadoresApi = ordenadores;
-      this.ordenadores = this.ordenadoresApi;
-      this.ordenadorTmp = this.ordenadores.map((x: Ordenador) => {
+    this.messageService.add('Mostrando Ordenadorees');
+    this.ordenadorService.getOrdenadoresApi().subscribe(ordenadoresOBJ => {
+      this.ordenadoresApi = ordenadoresOBJ;
+      this.ordenadoresOBJ = this.ordenadoresApi;
+      this.ordenadorTmp = this.ordenadoresOBJ.map((x: Ordenador) => {
         return new Ordenador(
           x._modelo,
           x._fecha_montaje,
@@ -40,7 +40,7 @@ export class OrdenadoresComponent implements OnInit {
   }
 
   delete(ordenador: Ordenador): void {
-    this.ordenadores = this.ordenadores.filter(h => h !== ordenador);
+    this.ordenadoresOBJ = this.ordenadoresOBJ.filter(h => h !== ordenador);
     this.ordenadorService.deleteOrdenador(ordenador).subscribe();
     console.log(ordenador);
   }
@@ -79,7 +79,7 @@ export class OrdenadoresComponent implements OnInit {
     };
     this.ordenadorService.nuevoOrdenadorPost(newDoc).subscribe(ordenador => {
       this.ordenadorTmp = ordenador;
-      this.ordenadores.push(this.ordenadorTmp);
+      this.ordenadoresOBJ.push(this.ordenadorTmp);
     });
   }
   ngOnInit() {
