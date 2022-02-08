@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { Ordenador } from '../modelos/ordenador';
-import { OrdenadorService } from '../ordenador.service';
-import { MessageService } from '../message.service';
+import { OrdenadorService } from '../servicios/ordenador.service';
+import { MessageService } from '../servicios/message.service';
 
 @Component({
   selector: 'app-grafico02',

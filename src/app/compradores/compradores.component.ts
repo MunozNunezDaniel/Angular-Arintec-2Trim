@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Comprador } from '../modelos/comprador';
-import { CompradorService } from '../comprador.service';
-import { MessageService } from '../message.service';
+import { CompradorService } from '../servicios/comprador.service';
+import { MessageService } from '../servicios/message.service';
 import { Ordenador } from '../modelos/ordenador';
 
 @Component({
@@ -23,8 +23,8 @@ export class CompradoresComponent implements OnInit {
       this.compradoresApi = compradores;
       for (let comprador of this.compradoresApi) {
         let ordenadores: Array<Ordenador> = new Array();
-        for (let ordenador of comprador.ordenadores) {
-          let p = new Ordenador(
+        for (let ordenador of comprador._ordenadores_comprados) {
+          let o = new Ordenador(
             ordenador._modelo,
             ordenador._fecha_montaje,
             ordenador._fecha_garantia,
@@ -34,19 +34,20 @@ export class CompradoresComponent implements OnInit {
             ordenador._disco_duro,
             ordenador._comprador
           );
-          ordenadores.push(p);
+          ordenadores.push(o);
         }
-        let s = new Comprador(
+        let c = new Comprador(
           comprador._identif,
           comprador._nombre_comprador,
           comprador._presupuesto,
           comprador._n_telefono,
           ordenadores
         );
-        this.compradores.push(s);
+        this.compradores.push(c);
       }
     });
   }
+
   add(
     identif: string,
     nombre_comprador: string,

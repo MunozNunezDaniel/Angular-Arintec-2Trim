@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Ordenador } from '../modelos/ordenador';
-import { OrdenadorService } from '../ordenador.service';
-import { MessageService } from '../message.service';
+import { OrdenadorService } from '../servicios/ordenador.service';
+import { MessageService } from '../servicios/message.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -37,9 +37,9 @@ export class OrdenadorDetailComponent implements OnInit {
     };
     this.ordenadorService.updateOrdenador(doc).subscribe(() => this.goBack());
   }
-  /*
-  Para recuperar el documento por el Id reicibido como parámetro
-  */
+  
+  // Para recuperar el documento por el Id recibido como parámetro
+  
   getOrdenador(): void {
     const modelo = this.route.snapshot.paramMap.get('modelo');
     this.messageService.add(

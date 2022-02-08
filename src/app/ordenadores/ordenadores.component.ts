@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Ordenador } from '../modelos/ordenador';
-import { OrdenadorService } from '../ordenador.service';
-import { MessageService } from '../message.service';
+import { OrdenadorService } from '../servicios/ordenador.service';
+import { MessageService } from '../servicios/message.service';
 
 
 @Component({
-  selector: 'app-ordenadorees',
+  selector: 'app-ordenadores',
   templateUrl: './ordenadores.component.html',
   styleUrls: ['./ordenadores.component.css']
 })
@@ -20,7 +20,7 @@ export class OrdenadoresComponent implements OnInit {
   ) {}
 
   getOrdenadoresApi() {
-    this.messageService.add('Mostrando Ordenadorees');
+    this.messageService.add('Mostrando Ordenadores');
     this.ordenadorService.getOrdenadoresApi().subscribe(ordenadoresOBJ => {
       this.ordenadoresApi = ordenadoresOBJ;
       this.ordenadoresOBJ = this.ordenadoresApi;
@@ -55,7 +55,6 @@ export class OrdenadoresComponent implements OnInit {
     disco_duro: string,
     comprador: string
   ): void {
-    //hay que decidir que hacer con los parseInt
     const modeloV = modelo.trim();
     const fecha_montajeV = new Date(fecha_montaje);
     const fecha_garantiaV = new Date(fecha_garantia);

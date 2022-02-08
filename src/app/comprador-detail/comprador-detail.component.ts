@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Comprador } from '../modelos/comprador';
 import { Ordenador } from '../modelos/ordenador';
-import { CompradorService } from '../comprador.service';
+import { CompradorService } from '../servicios/comprador.service';
+import { OrdenadorService} from '../servicios/ordenador.service';
 import { Location } from '@angular/common';
-import { MessageService } from '../message.service';
+import { MessageService } from '../servicios/message.service';
 
 @Component({
   selector: 'app-comprador-detail',
@@ -13,11 +14,12 @@ import { MessageService } from '../message.service';
 })
 export class CompradorDetailComponent implements OnInit {
   comprador: Comprador;
-  compradorApi = null;
+  ordenador: Ordenador;
 
   constructor(
     private route: ActivatedRoute,
     private compradorService: CompradorService,
+    private ordenadorService: OrdenadorService,
     private location: Location,
     private messageService: MessageService
   ) {}
@@ -26,12 +28,33 @@ export class CompradorDetailComponent implements OnInit {
     this.getComprador();
   }
 
+  save(_identif: string): void {
+    const doc = {
+      identif: this.comprador._identif,
+      nombre_comprador: this.comprador._nombre_comprador,
+      presupuesto: this.comprador._presupuesto,
+      n_telefono: this.comprador._n_telefono
+    };
+    this.compradorService.updateComprador(doc).subscribe(() => this.goBack());
+  }
+/*
   getComprador(): void {
-    let identif = this.route.snapshot.paramMap.get('identif');
-    this.compradorService.getComprador(identif).subscribe(s => {
-      this.compradorApi = s;
+    const nombre_comprador = this.route.snapshot.paramMap.get('nombre_comprador');
+    this.messageService.add(
+      `CompradoresComponent: Selected comprador=${nombre_comprador}`
+    );
+    this.compradorService.getComprador(nombre_comprador).subscribe(comprador => {
+      const compradorTmp: any = comprador;
+      this.comprador = compradorTmp[0];
+    });
+  }
+  */
+  getComprador(): void {
+    let nombre_comprador = this.route.snapshot.paramMap.get('nombre_comprador');
+    this.compradorService.getComprador(nombre_comprador).subscribe(s => {
+      this.comprador = s as Comprador;
       let ordenadores: Array<Ordenador> = new Array();
-      for (let ordenador of this.compradorApi[0].ordenadores) {
+      for (let ordenador of this.comprador.ordenadores) {
         let p = new Ordenador(
           ordenador._modelo,
           ordenador._fecha_montaje,
@@ -44,13 +67,6 @@ export class CompradorDetailComponent implements OnInit {
         );
         ordenadores.push(p);
       }
-      this.comprador = new Comprador(
-        this.compradorApi[0]._identif,
-        this.compradorApi[0]._nombre_comprador,
-        this.compradorApi[0]._presupuesto,
-        this.compradorApi[0]._n_telefono,
-        ordenadores
-      );
     });
   }
 
@@ -83,20 +99,12 @@ export class CompradorDetailComponent implements OnInit {
       RAM: RAMV,
       disco_duro: disco_duroV
     };
-    this.compradorService.nuevoCompradorPost(newDoc).subscribe(comprador => {
+    this.ordenadorService.nuevoOrdenadorPost(newDoc).subscribe(ordenador => {
       const ordenadorTmp: any = newDoc;
-      this.comprador._ordenadores.push(ordenadorTmp);
+      this.ordenador._ordenadores.push(ordenadorTmp);
     });
   }
-  save(_presupuesto: string): void {
-    const doc = {
-      identif: this.comprador._identif,
-      nombre_comprador: this.comprador._nombre_comprador,
-      presupuesto: this.comprador._presupuesto,
-      n_telefono: this.comprador._n_telefono
-    };
-    this.compradorService.updateComprador(doc).subscribe(() => this.goBack());
-  }
+
   goBack(): void {
     this.location.back();
   }

@@ -19,4 +19,19 @@ export class Comprador {
     this._n_telefono = n_telefono;
     this._ordenadores = ordenadores;
   }
+  get identif() {
+    return this._identif;
+  }
+  get nombre_comprador() {
+    return this._nombre_comprador;
+  }
+  get presupuesto() {
+    return this._presupuesto;
+  }
+  get n_telefono() {
+    return this._n_telefono;
+  }
+  get ordenadores() {
+    return this._ordenadores;
+  }
 }

@@ -9,14 +9,14 @@ import {APP_BASE_HREF} from '@angular/common';
 import { AppComponent } from './app.component';
 import { CompradorDetailComponent } from './comprador-detail/comprador-detail.component';
 import { CompradoresComponent } from './compradores/compradores.component';
-//import { Grafico01Component } from './grafico01/grafico01.component';
-//import { Grafico02Component } from './grafico02/grafico01.component';
-import { MessageService } from './message.service';
+import { Grafico01Component } from './grafico01/iva.component';
+import { Grafico02Component } from './grafico02/garantia.component';
+import { MessageService } from './servicios/message.service';
 import { OrdenadorDetailComponent } from './ordenador-detail/ordenador-detail.component';
 import { OrdenadoresComponent } from './ordenadores/ordenadores.component';
-import { CompradorService } from './comprador.service';
-import { OrdenadorService } from './ordenador.service';
-//Añadir los servicios de comprador y ordenador
+import { CompradorService } from './servicios/comprador.service';
+import { OrdenadorService } from './servicios/ordenador.service';
+
 
 @NgModule({
   imports: [
@@ -30,8 +30,8 @@ import { OrdenadorService } from './ordenador.service';
     AppComponent,
     CompradorDetailComponent,
     CompradoresComponent,
-    //Grafico01Component,
-    //Grafico02Component,
+    Grafico01Component,
+    Grafico02Component,
     OrdenadorDetailComponent,
     OrdenadoresComponent
   ],
@@ -41,7 +41,6 @@ import { OrdenadorService } from './ordenador.service';
     MessageService,
     OrdenadorService,
     CompradorService
-    //poner aqui los servicios para enlazarlos
   ],
 })
 export class AppModule {}

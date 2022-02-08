@@ -8,7 +8,7 @@
         placeholder="{{comprador._identif}}"
       />
     </label>
-    <br />
+    <br/>
     <label
       >Nombre del comprador:
       <input
@@ -17,25 +17,25 @@
         placeholder="{{comprador._nombre_comprador}}"
       />
     </label>
-    <br />
+    <br/>
     <label
       >Presupuesto:
       <input
         #compradorPresupuesto
         [(ngModel)]="comprador._presupuesto"
-        placeholder="presupuesto"
+        placeholder="{{comprador._presupuesto}}"
       />
     </label>
-    <br />
+    <br/>
     <label
       >Numero de teléfono:
       <input
         #compradorDireccion
         [(ngModel)]="comprador._n_telefono"
-        placeholder="n_telefono"
+        placeholder="{{comprador._n_telefono}}"
       />
     </label>
-    <br />
+    <br/>
   </div>
   <button (click)="goBack()">Volver</button>
   <button (click)="save(compradorPresupuesto.value)">Guardar</button>

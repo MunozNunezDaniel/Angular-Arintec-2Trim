@@ -19,7 +19,7 @@
   <tr>
     <th colspan="2">
       <button
-        (click)="add(compradorNombre.value, compradorIdentif.value, compradorPresupuesto.value, compradorNumero.value);compradorIdentif.value='';compradorPresupuesto.value='';compradorNumero.value='';"
+        (click)="add(compradorNombre.value, compradorIdentif.value, compradorPresupuesto.value, compradorNumero.value); compradorIdentif.value=''; compradorPresupuesto.value=''; compradorNumero.value='';"
       >
         Añadir Comprador
       </button>
@@ -34,6 +34,7 @@
     <th>Identificador</th>
     <th>Presupuesto</th>
     <th>Número de Teléfono</th>
+    <th>Eliminar</th>
   </tr>
   <tr *ngFor="let comprador of compradores">
     <th>
@@ -42,5 +43,14 @@
     <th>{{comprador._identif}}</th>
     <th>{{comprador._presupuesto}}</th>
     <th>{{comprador._n_telefono}}</th>
+    <th>
+      <button
+        class="delete"
+        title="delete comprador"
+        (click)="delete(comprador)"
+      >
+        x
+      </button>
+    </th>
   </tr>
 </table>

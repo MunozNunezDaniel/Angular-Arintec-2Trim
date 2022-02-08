@@ -7,6 +7,7 @@ export class Ordenador {
   _RAM: Number;
   _disco_duro: String;
   _comprador: String;
+  _ordenadores: any;
 
   public constructor(
     modelo: String,
