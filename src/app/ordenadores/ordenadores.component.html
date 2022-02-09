@@ -2,40 +2,46 @@
 <table>
   <tr>
     <th>Modelo:</th>
-    <th><input #ordenadorModelo /></th>
+    <th><input #ordPModelo /></th>
   </tr>
   <tr>
     <th>Fecha montaje(aa-mm-dd):</th>
-    <th><input #ordenadorFmontaje /></th>
+    <th><input #ordPFmontaje /></th>
   </tr>
   <tr>
     <th>Fecha garantia(aa-mm-dd):</th>
-    <th><input #ordenadorFgarantia /></th>
+    <th><input #ordPFgarantia /></th>
   </tr>
   <tr>
     <th>Precio del pc:</th>
-    <th><input #ordenadorPrecio /></th>
+    <th><input #ordPPrecio /></th>
   </tr>
   <tr>
     <th>Pedidos:</th>
-    <th><input #ordenadorCantidad /></th>
+    <th><input #ordPCantidad /></th>
   </tr>
   <tr>
     <th>RAM:</th>
-    <th><input #ordenadorRAM /></th>
+    <th><input #ordPRAM /></th>
   </tr>
   <tr>
     <th>Capacidad del disco duro:</th>
-    <th><input #ordenadorCapacidad /></th>
+    <th><input #ordPCapacidad /></th>
   </tr>
+  <!--
+  <tr>
+    <th>Duracion de bateria:</th>
+    <th><input #ordPduracionBat /></th>
+  </tr>
+-->
   <tr>
     <th>Nombre del comprador:</th>
-    <th><input #ordenadorNombreComp /></th>
+    <th><input #ordPNombreComp /></th>
   </tr>
   <tr>
     <th colspan="2">
       <button
-        (click)="add(ordenadorModelo.value, ordenadorFmontaje.value, ordenadorFgarantia.value, ordenadorPrecio.value, ordenadorCantidad.value, ordenadorRAM.value, ordenadorCapacidad.value, ordenadorNombreComp.value); ordenadorFmontaje.value=''; ordenadorFgarantia.value=''; ordenadorPrecio.value=''; ordenadorCantidad.value=''; ordenadorRAM.value=''; ordenadorCapacidad.value=''; ordenadorNombreComp.value='';"
+        (click)="add(ordPModelo.value, ordPFmontaje.value, ordPFgarantia.value, ordPPrecio.value, ordPCantidad.value, ordPRAM.value, ordPCapacidad.value, ordPNombreComp.value); ordPModelo.value=''; ordPFmontaje.value=''; ordPPrecio.value=''; ordPCantidad.value=''; ordPRAM.value=''; ordPCapacidad.value=''; ordPNombreComp.value='';"
       >
         Añadir Ordenador
       </button>

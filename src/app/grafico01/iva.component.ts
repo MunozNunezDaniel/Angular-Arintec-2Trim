@@ -20,7 +20,7 @@ import { MessageService } from '../servicios/message.service';
   
     chartOptions: Highcharts.Options = {
       title: {
-          text: 'Precios de los equipos con el IVA incluido'
+          text: 'Precios Total de los pedidos realizados por cada cliente con IVA'
       },
       subtitle: {
           text: '21% IVA'
@@ -52,7 +52,7 @@ import { MessageService } from '../servicios/message.service';
       this.ordenadorService.getOrdenadoresApi().subscribe(
         result => {
           const misDatos: any = result;
-          const dataSeries = misDatos.map((x: Ordenador) => x._precio_del_pc);
+          const dataSeries = misDatos.map((x: Ordenador) => x.iva());
           const dataCategorias = misDatos.map((x: Ordenador) => x._modelo);
           this.chartOptions.series[0]['data'] = dataSeries;
           this.chartOptions.xAxis['categories'] = dataCategorias;

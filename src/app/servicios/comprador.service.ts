@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { MessageService } from './message.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Comprador } from '../modelos/comprador';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class CompradorService {
@@ -13,6 +14,12 @@ export class CompradorService {
     private messageService: MessageService,
     private http: HttpClient
   ) {}
+
+  requestoptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
 
   getCompradoresApi() {
     this.messageService.add('Cargamos los documentos');
@@ -42,8 +49,8 @@ export class CompradorService {
     return this.http.get(url1id);
   }
 */
-  getComprador(_nombre_comprador: string) {
+  getComprador(_nombre_comprador: string): Observable<any>{
     const url3id = `https://restapi-arintec.herokuapp.com/comprador/${_nombre_comprador}`;
-    return this.http.get(url3id);
+    return this.http.get(url3id, this.requestoptions);
   }
 }

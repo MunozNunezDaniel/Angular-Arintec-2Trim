@@ -43,26 +43,31 @@
   <br><br>
   <h2>Ordenadores</h2>
   <table class="ordenadores">
-    <tr>
-      <th>Modelo</th>
-      <th>Fecha de Montaje</th>
-      <th>Fecha de la garantía</th>
-      <th>Precio del PC</th>
-      <th>Cantidad</th>
-      <th>Memoria RAM</th>
-      <th>Capacidad del disco duro</th>
-      <th>Nombre del comprador</th>
-    </tr>
-    <tr *ngFor="let s of comprador._ordenadores">
-      <td>{{s._modelo}}</td>
-      <td>{{s._fecha_montaje}}</td>
-      <td>{{s._fecha_garantia}}</td>
-      <td>{{s._precio_del_pc}}</td>
-      <td>{{s._cantidad}}</td>
-      <td>{{s._RAM}}</td>
-      <td>{{s._disco_duro}}</td>
-      <td>{{s._comprador}}</td>
-    </tr>
+    <thead>
+      <tr>
+        <th>Modelo</th>
+        <th>Fecha de Montaje</th>
+        <th>Fecha de la garantía</th>
+        <th>Precio del PC</th>
+        <th>Cantidad</th>
+        <th>Memoria RAM</th>
+        <th>Capacidad del disco duro</th>
+        <th>Nombre del comprador</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of comprador.ordenadores_comprados">
+        <td>{{s._modelo}}</td>
+        <td>{{s._fecha_montaje}}</td>
+        <td>{{s._fecha_garantia}}</td>
+        <td>{{s._precio_del_pc}}</td>
+        <td>{{s._cantidad}}</td>
+        <td>{{s._RAM}}</td>
+        <td>{{s._disco_duro}}</td>
+        <td>{{s._comprador}}</td>
+      </tr>
+    </tbody>
+    
   </table>
   <h2>¿Desea añadir algún ordenador más a {{comprador._nombre_comprador}}?</h2>
   <table class="ordenadores">

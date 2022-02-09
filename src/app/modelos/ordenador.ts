@@ -1,13 +1,14 @@
 export class Ordenador {
-  _modelo: String;
-  _fecha_montaje: Date;
-  _fecha_garantia: Date;
-  _precio_del_pc: Number;
-  _cantidad: Number;
-  _RAM: Number;
-  _disco_duro: String;
-  _comprador: String;
-  _ordenadores: any;
+  public _modelo: String;
+  public _fecha_montaje: Date;
+  public _fecha_garantia: Date;
+  public _precio_del_pc: Number;
+  public _cantidad: Number;
+  public _RAM: Number;
+  public _disco_duro: String;
+  public _comprador: String;
+  static _precio_del_pc: number;
+  static _cantidad: number;
 
   public constructor(
     modelo: String,
@@ -52,18 +53,12 @@ export class Ordenador {
   get comprador() {
     return this._comprador;
   }
-  /*
+  
   iva() {
-    if (this._tipos == 'alimentacion') {
-      let precioiva: number =
-        (this._precio_del_pc * 0.21 + this._precio_del_pc) * this._cantidad;
-      return precioiva;
-    } else {
-      let precioiva1: number =
-        (this._precio_del_pc * 0.04 + this._precio_del_pc) * this._cantidad;
-      return precioiva1;
-    }
+    let precioiva: number = (Ordenador._precio_del_pc * 0.21) * Ordenador._cantidad;
+    return precioiva;
   }
+  /*
   iva2() {
     if (this._tipo == 'alimentacion') {
       let precioiva: number = this._precio_del_pc * 0.21 + this._precio_del_pc;
@@ -84,4 +79,5 @@ export class Ordenador {
   }
 
   tipos() {}
+
 }

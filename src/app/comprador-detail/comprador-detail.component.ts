@@ -25,7 +25,13 @@ export class CompradorDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getComprador();
+    //let nombre_comprador = this.route.snapshot.paramMap.get('nombre_comprador');
+    this.compradorService.getComprador('Rafa').subscribe(s => {
+      let compradores = s as Array<Comprador>;
+      this.comprador = new Comprador(s[0]._identif, s[0]._nombre_comprador, s[0]._presupuesto, s[0]._n_telefono, s[0]._ordenadores_comprados);
+      console.log(this.comprador.ordenadores_comprados);
+      console.log(s);
+    });
   }
 
   save(_identif: string): void {
@@ -48,28 +54,14 @@ export class CompradorDetailComponent implements OnInit {
       this.comprador = compradorTmp[0];
     });
   }
-  */
+  
   getComprador(): void {
     let nombre_comprador = this.route.snapshot.paramMap.get('nombre_comprador');
     this.compradorService.getComprador(nombre_comprador).subscribe(s => {
       this.comprador = s as Comprador;
-      let ordenadores: Array<Ordenador> = new Array();
-      for (let ordenador of this.comprador.ordenadores) {
-        let p = new Ordenador(
-          ordenador._modelo,
-          ordenador._fecha_montaje,
-          ordenador._fecha_garantia,
-          ordenador._precio_del_pc,
-          ordenador._cantidad,
-          ordenador._RAM,
-          ordenador._disco_duro,
-          ordenador._comprador
-        );
-        ordenadores.push(p);
-      }
     });
   }
-
+*/
   add(
     modelo: string,
     fecha_montaje: string,
@@ -101,7 +93,7 @@ export class CompradorDetailComponent implements OnInit {
     };
     this.ordenadorService.nuevoOrdenadorPost(newDoc).subscribe(ordenador => {
       const ordenadorTmp: any = newDoc;
-      this.ordenador._ordenadores.push(ordenadorTmp);
+      this.comprador._ordenadores_comprados.push(ordenadorTmp);
     });
   }
 

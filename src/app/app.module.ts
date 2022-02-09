@@ -16,6 +16,8 @@ import { OrdenadorDetailComponent } from './ordenador-detail/ordenador-detail.co
 import { OrdenadoresComponent } from './ordenadores/ordenadores.component';
 import { CompradorService } from './servicios/comprador.service';
 import { OrdenadorService } from './servicios/ordenador.service';
+import { PortatilesComponent } from './portatiles/portatiles.component';
+import { SobremesasComponent } from './sobremesas/sobremesas.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { OrdenadorService } from './servicios/ordenador.service';
     Grafico01Component,
     Grafico02Component,
     OrdenadorDetailComponent,
-    OrdenadoresComponent
+    OrdenadoresComponent,
+    PortatilesComponent,
+    SobremesasComponent
   ],
   bootstrap: [AppComponent],
   providers: [
