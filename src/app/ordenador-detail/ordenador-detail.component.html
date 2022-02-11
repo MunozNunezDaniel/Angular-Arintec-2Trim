@@ -67,6 +67,30 @@
         placeholder="capacidad"
       />
     </label>
+<div *ngIf="portatil != null">
+  <br/>
+    <label
+      >Duracion de la Bateria:
+      <input
+        #ordenadorCapacidad
+        [(ngModel)]="portatil._duracion_bateria"
+        placeholder="Duracion de la bateria"
+      />
+    </label>
+</div>
+    
+<div *ngIf="sobremesa != null">
+  <br/>
+    <label
+      >Refrigeracion Liquida:
+      <input
+        #ordenadorCapacidad
+        [(ngModel)]="sobremesa._refrig_liquida"
+        placeholder="Refrigeracion Liquida"
+      />
+    </label>
+</div>
+    
 
     <br/>
     <label

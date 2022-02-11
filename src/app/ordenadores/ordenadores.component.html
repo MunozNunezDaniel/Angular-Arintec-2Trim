@@ -1,49 +1,14 @@
 <h2>Ordenadores</h2>
 <table>
   <tr>
-    <th>Modelo:</th>
-    <th><input #ordPModelo /></th>
-  </tr>
-  <tr>
-    <th>Fecha montaje(aa-mm-dd):</th>
-    <th><input #ordPFmontaje /></th>
-  </tr>
-  <tr>
-    <th>Fecha garantia(aa-mm-dd):</th>
-    <th><input #ordPFgarantia /></th>
-  </tr>
-  <tr>
-    <th>Precio del pc:</th>
-    <th><input #ordPPrecio /></th>
-  </tr>
-  <tr>
-    <th>Pedidos:</th>
-    <th><input #ordPCantidad /></th>
-  </tr>
-  <tr>
-    <th>RAM:</th>
-    <th><input #ordPRAM /></th>
-  </tr>
-  <tr>
-    <th>Capacidad del disco duro:</th>
-    <th><input #ordPCapacidad /></th>
-  </tr>
-  <!--
-  <tr>
-    <th>Duracion de bateria:</th>
-    <th><input #ordPduracionBat /></th>
-  </tr>
--->
-  <tr>
-    <th>Nombre del comprador:</th>
-    <th><input #ordPNombreComp /></th>
-  </tr>
-  <tr>
-    <th colspan="2">
-      <button
-        (click)="add(ordPModelo.value, ordPFmontaje.value, ordPFgarantia.value, ordPPrecio.value, ordPCantidad.value, ordPRAM.value, ordPCapacidad.value, ordPNombreComp.value); ordPModelo.value=''; ordPFmontaje.value=''; ordPPrecio.value=''; ordPCantidad.value=''; ordPRAM.value=''; ordPCapacidad.value=''; ordPNombreComp.value='';"
-      >
-        Añadir Ordenador
+    <th>
+      <button  routerLink="/portatiles">
+        Ver Portatiles
+      </button>
+    </th>
+    <th>
+      <button  routerLink="/sobremesas">
+        Ver Sobremesas
       </button>
     </th>
   </tr>
@@ -59,6 +24,8 @@
     <th>Pedidos</th>
     <th>RAM</th>
     <th>Capacidad del disco duro</th>
+    <th>Duracion Bateria</th>
+    <th>Refrigeracion Liquida</th>
     <th>Nombre del comprador</th>
     <th>Eliminar</th>
   </tr>
@@ -66,12 +33,14 @@
     <th>
       <a routerLink="/ordenador/{{ordenador._modelo}}"> {{ordenador._modelo}} </a>
     </th>
-    <th>{{ordenador._fecha_montaje}}</th>
-    <th>{{ordenador._fecha_garantia}}</th>
-    <th>{{ordenador._precio_del_pc}}</th>
+    <th>{{ordenador._fecha_montaje | date: 'dd-MM-yyyy'}}</th>
+    <th>{{ordenador._fecha_garantia | date: 'dd-MM-yyyy'}}</th>
+    <th>{{ordenador._precio_del_pc | currency}}</th>
     <th>{{ordenador._cantidad}}</th>
     <th>{{ordenador._RAM}}</th>
     <th>{{ordenador._disco_duro}}</th>
+    <th>{{ordenador._duracion_bateria}}</th>
+    <th>{{ordenador._refrig_liquida}}</th>
     <th>{{ordenador._comprador}}</th>
     <th>
       <button

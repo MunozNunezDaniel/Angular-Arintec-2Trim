@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ordenador } from '../modelos/ordenador';
+import { Portatil } from 'app/modelos/portatil';
+import { Sobremesa } from 'app/modelos/sobremesa';
 import { OrdenadorService } from '../servicios/ordenador.service';
 import { MessageService } from '../servicios/message.service';
 

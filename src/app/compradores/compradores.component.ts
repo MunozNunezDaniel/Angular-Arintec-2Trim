@@ -37,7 +37,6 @@ export class CompradoresComponent implements OnInit {
           ordenadores.push(o);
         }
         let c = new Comprador(
-          comprador._identif,
           comprador._nombre_comprador,
           comprador._presupuesto,
           comprador._n_telefono,
@@ -49,12 +48,10 @@ export class CompradoresComponent implements OnInit {
   }
 
   add(
-    identif: string,
     nombre_comprador: string,
     presupuesto: string,
     n_telefono: string
   ): void {
-    const identifV = identif;
     const nombre_compradorV = nombre_comprador.trim();
     const presupuestoV = parseInt(presupuesto);
     const n_telefonoV = parseInt(n_telefono);
@@ -63,7 +60,6 @@ export class CompradoresComponent implements OnInit {
       return;
     }
     const newDoc: any = {
-      identif: identifV,
       nombre_comprador: nombre_compradorV,
       presupuesto: presupuestoV,
       n_telefono: n_telefonoV

@@ -16,6 +16,8 @@ import { OrdenadorDetailComponent } from './ordenador-detail/ordenador-detail.co
 import { OrdenadoresComponent } from './ordenadores/ordenadores.component';
 import { CompradorService } from './servicios/comprador.service';
 import { OrdenadorService } from './servicios/ordenador.service';
+import { PortatilService } from './servicios/portatil.service';
+import { SobremesaService } from './servicios/Sobremesa.service';
 import { PortatilesComponent } from './portatiles/portatiles.component';
 import { SobremesasComponent } from './sobremesas/sobremesas.component';
 
@@ -45,6 +47,8 @@ import { SobremesasComponent } from './sobremesas/sobremesas.component';
     MessageService,
     OrdenadorService,
     CompradorService
+    //PortatilService,
+    //SobremesaService
   ],
 })
 export class AppModule {}

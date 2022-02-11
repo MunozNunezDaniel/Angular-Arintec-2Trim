@@ -7,8 +7,6 @@ export class Ordenador {
   public _RAM: Number;
   public _disco_duro: String;
   public _comprador: String;
-  static _precio_del_pc: number;
-  static _cantidad: number;
 
   public constructor(
     modelo: String,
@@ -54,11 +52,12 @@ export class Ordenador {
     return this._comprador;
   }
   
+  //Hacer metodo iva
   iva() {
-    let precioiva: number = (Ordenador._precio_del_pc * 0.21) * Ordenador._cantidad;
-    return precioiva;
+
   }
   /*
+  
   iva2() {
     if (this._tipo == 'alimentacion') {
       let precioiva: number = this._precio_del_pc * 0.21 + this._precio_del_pc;

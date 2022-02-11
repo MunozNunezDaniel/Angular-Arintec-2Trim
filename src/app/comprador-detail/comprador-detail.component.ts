@@ -25,18 +25,19 @@ export class CompradorDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    //let nombre_comprador = this.route.snapshot.paramMap.get('nombre_comprador');
-    this.compradorService.getComprador('Rafa').subscribe(s => {
+    
+    let nombre_comprador = this.route.snapshot.paramMap.get('identif');
+    this.compradorService.getComprador(nombre_comprador).subscribe(s => {
       let compradores = s as Array<Comprador>;
-      this.comprador = new Comprador(s[0]._identif, s[0]._nombre_comprador, s[0]._presupuesto, s[0]._n_telefono, s[0]._ordenadores_comprados);
+      this.comprador = new Comprador(s[0]._nombre_comprador, s[0]._presupuesto, s[0]._n_telefono, s[0]._ordenadores_comprados);
       console.log(this.comprador.ordenadores_comprados);
       console.log(s);
     });
+    
   }
 
-  save(_identif: string): void {
+  save(_nombre_comprador: string): void {
     const doc = {
-      identif: this.comprador._identif,
       nombre_comprador: this.comprador._nombre_comprador,
       presupuesto: this.comprador._presupuesto,
       n_telefono: this.comprador._n_telefono

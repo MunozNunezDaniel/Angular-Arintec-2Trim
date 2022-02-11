@@ -8,7 +8,8 @@ Los componentes consumen servicios; es decir, puede inyectar un servicio en un c
 
 Una aplicación real buscará héroes de un servidor remoto, que es una operación inherentemente asincrónica.
 
-Un Ordenador de múltiples valores, que empuja a suscriptores. Se utiliza para el manejo de eventos asíncronos en todo Angular. Ejecutas un observable suscribiéndote con su método subscribe(), pasando devoluciones de llamada para notificaciones de nuevos valores, errores o finalización.
+Un Ordenador de múltiples valores, que empuja a suscriptores. Se utiliza para el manejo de eventos asíncronos en todo Angular. 
+Ejecutas un observable suscribiéndote con su método subscribe(), pasando devoluciones de llamada para notificaciones de nuevos valores, errores o finalización.
 */
 
 @Injectable({

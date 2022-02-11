@@ -1,1 +1,91 @@
-<p>portatiles works!</p>
+<h2>Ordenadores Portatiles</h2>
+<table>
+  <tr>
+    <th>Modelo:</th>
+    <th><input #ordPModelo /></th>
+  </tr>
+  <tr>
+    <th>Fecha montaje(aa-mm-dd):</th>
+    <th><input #ordPFmontaje /></th>
+  </tr>
+  <tr>
+    <th>Fecha garantia(aa-mm-dd):</th>
+    <th><input #ordPFgarantia /></th>
+  </tr>
+  <tr>
+    <th>Precio del pc:</th>
+    <th><input #ordPPrecio /></th>
+  </tr>
+  <tr>
+    <th>Pedidos:</th>
+    <th><input #ordPCantidad /></th>
+  </tr>
+  <tr>
+    <th>RAM:</th>
+    <th><input #ordPRAM /></th>
+  </tr>
+  <tr>
+    <th>Capacidad del disco duro:</th>
+    <th><input #ordPCapacidad /></th>
+  </tr>
+
+  <tr>
+    <th>Duracion de bateria:</th>
+    <th><input #ordPduracionBat /></th>
+  </tr>
+  <tr>
+    <th>Nombre del comprador:</th>
+    <th><input #ordPNombreComp /></th>
+  </tr>
+  <tr>
+    <th>
+      
+    </th>
+    <th>
+      <button
+        (click)="add(ordPModelo.value, ordPFmontaje.value, ordPFgarantia.value, ordPPrecio.value, ordPCantidad.value, ordPRAM.value, ordPCapacidad.value, ordPduracionBat.value, ordPNombreComp.value); ordPModelo.value=''; ordPFmontaje.value=''; ordPFgarantia.value=''; ordPPrecio.value=''; ordPCantidad.value=''; ordPRAM.value=''; ordPCapacidad.value=''; ordPduracionBat.value=''; ordPNombreComp.value='';"
+      >
+        Añadir Portatil
+      </button>
+    </th>
+  </tr>
+</table>
+
+<br /><br />
+<table class="portatiles">
+  <tr>
+    <th>Modelo</th>
+    <th>Fecha montaje</th>
+    <th>Fecha garantia</th>
+    <th>Precio del pc</th>
+    <th>Pedidos</th>
+    <th>RAM</th>
+    <th>Capacidad del disco duro</th>
+    <th>Duracion de batería</th>
+    <th>Nombre del comprador</th>
+    <th>Eliminar</th>
+  </tr>
+  <!-- Pedidos es _cantidad en la API-->
+  <tr *ngFor="let portatil of portatilesOBJ">
+    <th>
+      <a routerLink="/ordenador/{{portatil._modelo}}"> {{portatil._modelo}} </a>
+    </th>
+    <th>{{portatil._fecha_montaje}}</th>
+    <th>{{portatil._fecha_garantia}}</th>
+    <th>{{portatil._precio_del_pc}}</th>
+    <th>{{portatil._cantidad}}</th>
+    <th>{{portatil._RAM}}</th>
+    <th>{{portatil._disco_duro}}</th>
+    <th>{{portatil._duracion_bateria}}</th>
+    <th>{{portatil._comprador}}</th>
+    <th>
+      <button
+        class="delete"
+        title="delete portatil"
+        (click)="delete(portatil)"
+      >
+        x
+      </button>
+    </th>
+  </tr>
+</table>

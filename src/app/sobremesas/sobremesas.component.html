@@ -1,1 +1,89 @@
-<p>sobremesas works!</p>
+<h2>Ordenadores de sobremesa</h2>
+<table>
+  <tr>
+    <th>Modelo:</th>
+    <th><input #ordSModelo /></th>
+  </tr>
+  <tr>
+    <th>Fecha montaje(aa-mm-dd):</th>
+    <th><input #ordSFmontaje /></th>
+  </tr>
+  <tr>
+    <th>Fecha garantia(aa-mm-dd):</th>
+    <th><input #ordSFgarantia /></th>
+  </tr>
+  <tr>
+    <th>Precio del pc:</th>
+    <th><input #ordSPrecio /></th>
+  </tr>
+  <tr>
+    <th>Pedidos:</th>
+    <th><input #ordSCantidad /></th>
+  </tr>
+  <tr>
+    <th>RAM:</th>
+    <th><input #ordSRAM /></th>
+  </tr>
+  <tr>
+    <th>Capacidad del disco duro:</th>
+    <th><input #ordSCapacidad /></th>
+  </tr>
+
+  <tr>
+    <th>Refrigeracion Liquida:</th>
+    <th><input #ordSrefrigLiq /></th>
+  </tr>
+  <tr>
+    <th>Nombre del comprador:</th>
+    <th><input #ordSNombreComp /></th>
+  </tr>
+  <tr>
+    <th colspan="2">
+      <button
+        (click)="add(ordSModelo.value, ordSFmontaje.value, ordSFgarantia.value, ordSPrecio.value, ordSCantidad.value, ordSRAM.value, ordSCapacidad.value, ordSrefrigLiq.value, ordSNombreComp.value);
+        ordSModelo.value=''; ordSFmontaje.value=''; ordSFgarantia.value=''; ordSPrecio.value=''; ordSCantidad.value=''; ordSRAM.value=''; ordSCapacidad.value=''; ordSrefrigLiq.value=''; ordSNombreComp.value='';"
+      >
+        Añadir Sobremesa
+      </button>
+    </th>
+  </tr>
+</table>
+
+<br /><br />
+<table class="sobremesas">
+  <tr>
+    <th>Modelo</th>
+    <th>Fecha montaje</th>
+    <th>Fecha garantia</th>
+    <th>Precio del pc</th>
+    <th>Pedidos</th>
+    <th>RAM</th>
+    <th>Capacidad del disco duro</th>
+    <th>Refrigeracion Liquida</th>
+    <th>Nombre del comprador</th>
+    <th>Eliminar</th>
+  </tr>
+  <!-- Pedidos es _cantidad en la API-->
+  <tr *ngFor="let sobremesa of sobremesasOBJ">
+    <th>
+      <a routerLink="/ordenador/{{sobremesa._modelo}}"> {{sobremesa._modelo}} </a>
+    </th>
+    <th>{{sobremesa._fecha_montaje}}</th>
+    <th>{{sobremesa._fecha_garantia}}</th>
+    <th>{{sobremesa._precio_del_pc}}</th>
+    <th>{{sobremesa._cantidad}}</th>
+    <th>{{sobremesa._RAM}}</th>
+    <th>{{sobremesa._disco_duro}}</th>
+    <th>{{sobremesa._refrig_liquida}}</th>
+    <th>{{sobremesa._comprador}}</th>
+    <th>
+      <button
+        class="delete"
+        title="delete sobremesa"
+        (click)="delete(sobremesa)"
+      >
+        x
+      </button>
+    </th>
+  </tr>
+</table>

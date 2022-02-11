@@ -36,7 +36,7 @@ export class CompradorService {
 
   //DELETE
   deleteComprador(comprador: Comprador) {
-    const url2Id = `https://restapi-arintec.herokuapp.com/compradorB/${comprador._identif}`;
+    const url2Id = `https://restapi-arintec.herokuapp.com/compradorB/${comprador._nombre_comprador}`;
     return this.http.delete(url2Id);
   }
   //POST
