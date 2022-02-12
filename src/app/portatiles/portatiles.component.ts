@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Portatil } from '../modelos/portatil';
 import { PortatilService } from '../servicios/portatil.service';
-import { MessageService } from '../servicios/message.service';
 
 @Component({
   selector: 'app-portatiles',
@@ -15,11 +14,9 @@ export class PortatilesComponent implements OnInit {
 
   constructor(
     private portatilService: PortatilService,
-    private messageService: MessageService
   ) {}
 
   getPortatilesApi() {
-    this.messageService.add('Mostrando Portatiles');
     this.portatilService.getPortatilesApi().subscribe(portatilesOBJ => {
       this.portatilesApi = portatilesOBJ;
       this.portatilesOBJ = this.portatilesApi;

@@ -22,7 +22,7 @@
     <label
       >Numero de teléfono:
       <input
-        #compradorDireccion
+        #compradorTelefono
         [(ngModel)]="comprador._n_telefono"
         placeholder="{{comprador._n_telefono}}"
       />
@@ -41,21 +41,25 @@
         <th>Fecha de Montaje</th>
         <th>Fecha de la garantía</th>
         <th>Precio del PC</th>
-        <th>Cantidad</th>
+        <th>Pedidos</th>
         <th>Memoria RAM</th>
         <th>Capacidad del disco duro</th>
+        <th>Duracion Bateria(minutos)</th>
+        <th>Refrigeracion Liquida</th>
         <th>Nombre del comprador</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let s of comprador.ordenadores_comprados">
         <td>{{s._modelo}}</td>
-        <td>{{s._fecha_montaje}}</td>
-        <td>{{s._fecha_garantia}}</td>
-        <td>{{s._precio_del_pc}}</td>
+        <td>{{s._fecha_montaje | date: 'dd-MM-yyyy'}}</td>
+        <td>{{s._fecha_garantia | date: 'dd-MM-yyyy'}}</td>
+        <td>{{s._precio_del_pc | currency}}</td>
         <td>{{s._cantidad}}</td>
         <td>{{s._RAM}}</td>
         <td>{{s._disco_duro}}</td>
+        <td>{{s._duracion_bateria}}</td>
+        <td>{{s._refrig_liquida}}</td>
         <td>{{s._comprador}}</td>
       </tr>
     </tbody>
@@ -68,11 +72,11 @@
       <th><input #ordenadorModelo /></th>
     </tr>
     <tr>
-      <th>Fecha de Montaje:</th>
+      <th>Fecha de Montaje(aaaa-mm-dd):</th>
       <th><input #ordenadorFmontaje /></th>
     </tr>
     <tr>
-      <th>Fecha de la garantía:</th>
+      <th>Fecha de la garantía(aaaa-mm-dd):</th>
       <th><input #ordenadorFgarantia /></th>
     </tr>
     <tr>
@@ -80,8 +84,8 @@
       <th><input #ordenadorPrecio /></th>
     </tr>
     <tr>
-      <th>Cantidad:</th>
-      <th><input #ordenadorCantidad /></th>
+      <th>Pedidos:</th>
+      <th><input #ordenadorPedidos /></th>
     </tr>
     <tr>
       <th>Memoria RAM:</th>
@@ -92,11 +96,22 @@
       <th><input #ordenadorCapacidad /></th>
     </tr>
     <tr>
+      <th>Duracion de la Batería(minutos):</th>
+      <th><input #ordenadorBateria /></th>
+    </tr>
+    <tr>
+      <th>Refrigeracion Líquida:</th>
+      <th><input #ordenadorLiquida /></th>
+    </tr>
+    <tr>
+      <th>Nombre del comprador:</th>
+      <th><input #ordenadorNcomprador /></th>
+    </tr>
+    <tr>
       <th>
         <button
-            (click)="add(ordenadorModelo.value, ordenadorFmontaje.value, ordenadorFgarantia.value, ordenadorPrecio.value, ordenadorCantidad.value, ordenadorRAM.value, ordenadorCapacidad.value);
-            
-            ordenadorFmontaje.value=''; ordenadorFgarantia.value='';ordenadorPrecio.value=''; ordenadorCantidad.value='';ordenadorRAM.value='';ordenadorCapacidad.value=''"
+            (click)="add(ordenadorModelo.value, ordenadorFmontaje.value, ordenadorFgarantia.value, ordenadorPrecio.value, ordenadorPedidos.value, ordenadorRAM.value, ordenadorCapacidad.value, ordenadorBateria.value, ordenadorLiquida.value, ordenadorNcomprador.value);
+              ordenadorFmontaje.value=''; ordenadorFgarantia.value=''; ordenadorPrecio.value=''; ordenadorPedidos.value=''; ordenadorRAM.value=''; ordenadorCapacidad.value=''; ordenadorBateria.value=''; ordenadorLiquida.value=''; ordenadorNcomprador.value='';"
           >
             Añadir
           </button>

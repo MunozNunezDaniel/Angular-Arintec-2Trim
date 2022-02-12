@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Sobremesa } from '../modelos/sobremesa';
@@ -31,7 +32,7 @@ export class SobremesaService {
     return this.http.get(this.url2);
   }
 
-  /**update**/
+  // Update
   updateSobremesa(doc: any) {
     console.log('en update');
     console.log(doc);
@@ -39,18 +40,18 @@ export class SobremesaService {
     return this.http.put(url2Id, doc);
   }
 
-  /** DELETE*/
+  // DELETE
   deleteSobremesa(sobremesa: Sobremesa) {
     const url5 = `https://restapi-arintec.herokuapp.com/ordenadorB/${sobremesa._modelo}`;
     return this.http.delete(url5);
   }
   
-  /** POST **/
+  // POST
   nuevoSobremesaPost(doc: any) {
     return this.http.post(this.url4, doc);
   }
 
-  /*Ordenador sobremesa por su modelo */
+  // Ordenador sobremesa por su modelo 
   getSobremesa(modelo: string) {
     const url2 = `https://restapi-arintec.herokuapp.com/ordenador/${modelo}`;
     return this.http.get(url2);

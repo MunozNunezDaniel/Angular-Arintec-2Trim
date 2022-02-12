@@ -52,8 +52,9 @@ import { MessageService } from '../servicios/message.service';
       this.ordenadorService.getOrdenadoresApi().subscribe(
         result => {
           const misDatos: any = result;
-          const dataSeries = misDatos.map((x: Ordenador) => x.iva());
-          const dataCategorias = misDatos.map((x: Ordenador) => x._modelo);
+          const dataSeries = misDatos.map((s: Ordenador) => s.iva());
+          console.log(dataSeries);
+          const dataCategorias = misDatos.map((x: Comprador) => x._nombre_comprador);
           this.chartOptions.series[0]['data'] = dataSeries;
           this.chartOptions.xAxis['categories'] = dataCategorias;
           Highcharts.chart('miGrafico01', this.chartOptions);

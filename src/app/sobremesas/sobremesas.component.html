@@ -5,11 +5,11 @@
     <th><input #ordSModelo /></th>
   </tr>
   <tr>
-    <th>Fecha montaje(aa-mm-dd):</th>
+    <th>Fecha montaje(aaaa-mm-dd):</th>
     <th><input #ordSFmontaje /></th>
   </tr>
   <tr>
-    <th>Fecha garantia(aa-mm-dd):</th>
+    <th>Fecha garantia(aaaa-mm-dd):</th>
     <th><input #ordSFgarantia /></th>
   </tr>
   <tr>
@@ -68,9 +68,9 @@
     <th>
       <a routerLink="/ordenador/{{sobremesa._modelo}}"> {{sobremesa._modelo}} </a>
     </th>
-    <th>{{sobremesa._fecha_montaje}}</th>
-    <th>{{sobremesa._fecha_garantia}}</th>
-    <th>{{sobremesa._precio_del_pc}}</th>
+    <th>{{sobremesa._fecha_montaje | date: 'dd-MM-yyyy'}}</th>
+    <th>{{sobremesa._fecha_garantia | date: 'dd-MM-yyyy'}}</th>
+    <th>{{sobremesa._precio_del_pc | currency}}</th>
     <th>{{sobremesa._cantidad}}</th>
     <th>{{sobremesa._RAM}}</th>
     <th>{{sobremesa._disco_duro}}</th>

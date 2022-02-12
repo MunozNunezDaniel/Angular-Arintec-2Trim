@@ -7,9 +7,9 @@ export class Sobremesa extends Ordenador {
       _modelo: String,
       _fecha_montaje: Date,
       _fecha_garantia: Date,
-      _precio_del_pc: Number,
-      _cantidad: Number,
-      _RAM: Number,
+      _precio_del_pc: number,
+      _cantidad: number,
+      _RAM: number,
       _disco_duro: String,
       _comprador: String,
       refrig_liquida: String

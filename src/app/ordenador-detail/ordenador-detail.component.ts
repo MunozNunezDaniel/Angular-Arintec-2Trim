@@ -1,13 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Ordenador } from '../modelos/ordenador';
 import { Portatil } from '../modelos/portatil';
 import { Sobremesa } from '../modelos/sobremesa';
 import { OrdenadorService } from '../servicios/ordenador.service';
-import { PortatilService } from '../servicios/portatil.service';
-import { SobremesaService } from '../servicios/sobremesa.service';
 
 import { MessageService } from '../servicios/message.service';
-import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -16,26 +14,19 @@ import { Location } from '@angular/common';
   styleUrls: ['./ordenador-detail.component.css']
 })
 export class OrdenadorDetailComponent implements OnInit {
-  // @Input() and @Output() allow Angular to share data between the parent context and child directives or components
   ordenador: Ordenador;
   sobremesa: Sobremesa = null;
   portatil: Portatil = null;
 
   constructor(
-    private ordenadorService: OrdenadorService,
-    private portatilService: PortatilService,
-    private sobremesaService: SobremesaService,
     private route: ActivatedRoute,
     private location: Location,
+    private ordenadorService: OrdenadorService,
     private messageService: MessageService
   ) {}
 
   ngOnInit() {
     this.getOrdenador();
-    /*
-    this.getPortatil();
-    this.getSobremesa();
-    */
   }
 
   save(_precio: string): void {
