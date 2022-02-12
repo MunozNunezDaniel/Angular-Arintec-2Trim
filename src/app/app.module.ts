@@ -17,7 +17,7 @@ import { OrdenadoresComponent } from './ordenadores/ordenadores.component';
 import { CompradorService } from './servicios/comprador.service';
 import { OrdenadorService } from './servicios/ordenador.service';
 import { PortatilService } from './servicios/portatil.service';
-import { SobremesaService } from './servicios/Sobremesa.service';
+import { SobremesaService } from './servicios/sobremesa.service';
 import { PortatilesComponent } from './portatiles/portatiles.component';
 import { SobremesasComponent } from './sobremesas/sobremesas.component';
 
@@ -46,9 +46,9 @@ import { SobremesasComponent } from './sobremesas/sobremesas.component';
     {provide: APP_BASE_HREF, useValue : '/' },
     MessageService,
     OrdenadorService,
-    CompradorService
-    //PortatilService,
-    //SobremesaService
+    CompradorService,
+    PortatilService,
+    SobremesaService
   ],
 })
 export class AppModule {}
