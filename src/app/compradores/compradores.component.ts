@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Comprador } from '../modelos/comprador';
 import { CompradorService } from '../servicios/comprador.service';
-import { MessageService } from '../servicios/message.service';
 import { Ordenador } from '../modelos/ordenador';
 
 @Component({
@@ -15,7 +14,6 @@ export class CompradoresComponent implements OnInit {
   compradorTmp: any;
   constructor(
     private compradorService: CompradorService,
-    private messageService: MessageService
   ) {}
 
   getCompradoresApi() {
@@ -78,4 +76,3 @@ export class CompradoresComponent implements OnInit {
     this.getCompradoresApi();
   }
 }
-

@@ -3,7 +3,6 @@ import { Ordenador } from '../modelos/ordenador';
 import { Portatil } from 'app/modelos/portatil';
 import { Sobremesa } from 'app/modelos/sobremesa';
 import { OrdenadorService } from '../servicios/ordenador.service';
-import { MessageService } from '../servicios/message.service';
 
 
 @Component({
@@ -18,11 +17,9 @@ export class OrdenadoresComponent implements OnInit {
 
   constructor(
     private ordenadorService: OrdenadorService,
-    private messageService: MessageService
   ) {}
 
   getOrdenadoresApi() {
-    this.messageService.add('Mostrando Ordenadores');
     this.ordenadorService.getOrdenadoresApi().subscribe(ordenadoresOBJ => {
       this.ordenadoresApi = ordenadoresOBJ;
       this.ordenadoresOBJ = this.ordenadoresApi;

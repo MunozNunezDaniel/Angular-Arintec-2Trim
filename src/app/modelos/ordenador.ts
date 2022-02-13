@@ -52,28 +52,17 @@ export class Ordenador {
     return this._comprador;
   }
   
-  //Hacer metodo iva
   iva() {
     let precioiva: number =
         (this._precio_del_pc * 0.21 + this._precio_del_pc) * this._cantidad;
       return precioiva;
   }
   /*
-  
-  iva2() {
-    if (this._tipo == 'alimentacion') {
-      let precioiva: number = this._precio_del_pc * 0.21 + this._precio_del_pc;
-      return precioiva;
-    } else {
-      let precioiva1: number = this._precio_del_pc * 0.04 + this._precio_del_pc;
-      return precioiva1;
-    }
-  }
 */
   dias() {
     let date: Date = new Date();
     let miliseconds: number =
-      new Date(this._fecha_garantia).getTime() - new Date(this._fecha_montaje).getTime();
+      new Date(this._fecha_garantia).getTime() - new Date().getTime();
     let dia = miliseconds / 86400000;
     let calc = Math.floor(dia);
     return calc;

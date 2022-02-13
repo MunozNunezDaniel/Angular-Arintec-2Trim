@@ -19,7 +19,12 @@ export class PortatilesComponent implements OnInit {
   getPortatilesApi() {
     this.portatilService.getPortatilesApi().subscribe(portatilesOBJ => {
       this.portatilesApi = portatilesOBJ;
-      this.portatilesOBJ = this.portatilesApi;
+      this.portatilesOBJ = Array<Portatil>();
+      this.portatilesApi.forEach(portatil => {
+        if (portatil._duracion_bateria != null) {
+          this.portatilesOBJ.push(portatil);
+        }
+      });
       this.portatilTmp = this.portatilesOBJ.map((x: Portatil) => {
         return new Portatil(
           x._modelo,

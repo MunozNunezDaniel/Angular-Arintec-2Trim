@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Sobremesa } from '../modelos/sobremesa';
 import { SobremesaService } from '../servicios/sobremesa.service';
-import { MessageService } from '../servicios/message.service';
 
 @Component({
   selector: 'app-sobremesas',
@@ -19,29 +18,32 @@ export class SobremesasComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private sobremesaService: SobremesaService,
-    private messageService: MessageService
   ) {}
 
-  getSobremesasApi() {
-    this.messageService.add('Mostrando Sobremesas');
-    this.sobremesaService.getSobremesasApi().subscribe(sobremesasOBJ => {
-      this.sobremesasApi = sobremesasOBJ;
-      this.sobremesasOBJ = this.sobremesasApi;
-      this.sobremesaTmp = this.sobremesasOBJ.map((x: Sobremesa) => {
-        return new Sobremesa(
-          x._modelo,
-          x._fecha_montaje,
-          x._fecha_garantia,
-          x._precio_del_pc,
-          x._cantidad,
-          x._RAM,
-          x._disco_duro,
-          x._refrig_liquida,
-          x._comprador
-        );
-      });
+getSobremesasApi() {
+  this.sobremesaService.getSobremesasApi().subscribe(sobremesasOBJ => {
+    this.sobremesasApi = sobremesasOBJ;
+    this.sobremesasOBJ = Array<Sobremesa>();
+    this.sobremesasApi.forEach(sobremesa => {
+      if (sobremesa._refrig_liquida !=  "") {
+        this.sobremesasOBJ.push(sobremesa);
+      }
     });
-  }
+    this.sobremesaTmp = this.sobremesasOBJ.map((x: Sobremesa) => {
+      return new Sobremesa(
+        x._modelo,
+        x._fecha_montaje,
+        x._fecha_garantia,
+        x._precio_del_pc,
+        x._cantidad,
+        x._RAM,
+        x._disco_duro,
+        x._refrig_liquida,
+        x._comprador
+      );
+    });
+  });
+}
 
   delete(sobremesa: Sobremesa): void {
     this.sobremesasOBJ = this.sobremesasOBJ.filter(h => h !== sobremesa);

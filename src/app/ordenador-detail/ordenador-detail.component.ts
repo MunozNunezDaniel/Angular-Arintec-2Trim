@@ -5,7 +5,6 @@ import { Portatil } from '../modelos/portatil';
 import { Sobremesa } from '../modelos/sobremesa';
 import { OrdenadorService } from '../servicios/ordenador.service';
 
-import { MessageService } from '../servicios/message.service';
 import { Location } from '@angular/common';
 
 @Component({
@@ -22,7 +21,6 @@ export class OrdenadorDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private ordenadorService: OrdenadorService,
-    private messageService: MessageService
   ) {}
 
   ngOnInit() {
@@ -55,12 +53,8 @@ export class OrdenadorDetailComponent implements OnInit {
   
   getOrdenador(): void {
     const modelo = this.route.snapshot.paramMap.get('modelo');
-    this.messageService.add(
-      `OrdenadoresComponent: Selected ordenador=${modelo}`
-    );
     this.ordenadorService.getOrdenador(modelo).subscribe(ordenador => {
       const ordenadorTmp: any = ordenador;
-      console.log(ordenadorTmp);
       if (ordenadorTmp[0]._duracion_bateria != null) {
         this.portatil = ordenadorTmp[0];
       } else {

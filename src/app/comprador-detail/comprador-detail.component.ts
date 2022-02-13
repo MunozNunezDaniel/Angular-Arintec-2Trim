@@ -8,7 +8,6 @@ import { Sobremesa } from 'app/modelos/sobremesa';
 import { CompradorService } from '../servicios/comprador.service';
 import { OrdenadorService} from '../servicios/ordenador.service';
 import { Location } from '@angular/common';
-import { MessageService } from '../servicios/message.service';
 
 @Component({
   selector: 'app-comprador-detail',
@@ -26,7 +25,6 @@ export class CompradorDetailComponent implements OnInit {
     private compradorService: CompradorService,
     private ordenadorService: OrdenadorService,
     private location: Location,
-    private messageService: MessageService
   ) {}
 
   ngOnInit() {
@@ -35,7 +33,7 @@ export class CompradorDetailComponent implements OnInit {
 
   save(_nombre_comprador: string): void {
     const doc = {
-      nombre_comprador: this.comprador._nombre_comprador,
+      nombre_comprador: this.comprador._nombre_comprador.trim(),
       presupuesto: this.comprador._presupuesto,
       n_telefono: this.comprador._n_telefono
     };

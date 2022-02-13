@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { Ordenador } from '../modelos/ordenador';
 import { OrdenadorService } from '../servicios/ordenador.service';
-import { MessageService } from '../servicios/message.service';
 
 @Component({
   selector: 'app-grafico02',
@@ -62,7 +61,7 @@ export class Grafico02Component implements OnInit {
         let api = null;
         api = result;
         for (let x of api) {
-          let p = new Ordenador(
+          let O = new Ordenador(
             x._modelo,
             x._fecha_montaje,
             x._fecha_garantia,
@@ -72,7 +71,7 @@ export class Grafico02Component implements OnInit {
             x._disco_duro,
             x._comprador
           );
-          misDatos.push(p);
+          misDatos.push(O);
         }
         const dataSeries = misDatos.map((x: Ordenador) => x.dias());
         const dataCategorias = misDatos.map((x: Ordenador) => x._modelo);

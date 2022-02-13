@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { AppRoutingModule } from './app-routing.module';
-import {APP_BASE_HREF} from '@angular/common';
+import { APP_BASE_HREF} from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { CompradorDetailComponent } from './comprador-detail/comprador-detail.component';
